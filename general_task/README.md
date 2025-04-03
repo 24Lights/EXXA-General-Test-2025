@@ -43,9 +43,41 @@ We can now safely omit channel 3 and take channel 0 only as it explains most of 
 
 ## Model building and selection :
 
+NOTE : In the notebook run there will be reconstructions as well for this task as i done that first and then used the latents to perform clustering . I experimented all the models from Image task to see which model's latents are better for clustering. Finally i used AutoEncoders with 2d convolutional layers ( named as 'convauto')
+
+After this step , the latents are extracted for all the image samples . I used PCA and TSNE visualisations , reduced this latent space into 2 components and then visualised them .
 
 
-## 
+![image](https://github.com/user-attachments/assets/47f12e6d-74d4-46cd-8377-88a0220b4381)
+![image](https://github.com/user-attachments/assets/1bf16b88-02e8-45e2-92b6-b7d2ebc77d8d)
+
+
+Then the clustering was done. I had to choose the n_clusters. So i experimented with a range of clusters from 2 to 6 and checked the silhoutte scores. It was found that n_clusters = 2 has the best silhoutte score overall 
+
+![image](https://github.com/user-attachments/assets/66580ec1-656c-4b31-8999-4c6eda721416)
+
+Primarily i clustered with K-Means but also experimented Gmms and hdbscan 
+
+The below are the best scored ones 
+
+![image](https://github.com/user-attachments/assets/6bcbf124-4c0f-4471-9056-47f754998224)
+
+![image](https://github.com/user-attachments/assets/080bbec6-177a-4977-85e3-c11e09edb759)
+
+![image](https://github.com/user-attachments/assets/0cac185f-9179-4517-ae38-34f40fc5b036)
+
+##  Visualising the actual data and observations
+
+I plotted these samples against their ID numbers (list indices) 
+
+![image](https://github.com/user-attachments/assets/a21fc3a1-44c7-4b21-80a9-f4ea355c9cee)
+
+Observations :
+
+Cluster 1 : <placeholder>
+
+Cluster 2 : <placeholder>
+
 
 
 
