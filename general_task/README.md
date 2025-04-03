@@ -79,19 +79,21 @@ I plotted these samples against their ID numbers (list indices)
 
 **Observations:**
 
-**Cluster 1:**  a. Contains samples with consistent global brightness and distinct contour patterns.
-                b. Multiple well-defined rings and dark gaps.
-                c. Spiral arms and asymmetries are visible in some disks
-                d. The ring structures are often off-center or elliptical, suggesting disk inclination or non-axisymmetry.
-                e. Disk structures suggest gravitational interactions, indicative of planet-disk coupling.
-                f. 
+### Cluster 1
+1. Contains samples with consistent global brightness and distinct contour patterns.
+2. Multiple well-defined rings and dark gaps.
+3. Spiral arms and asymmetries are visible in some disks.
+4. The ring structures are often off-center or elliptical, suggesting disk inclination or non-axisymmetry.
+5. Disk structures suggest gravitational interactions, indicative of planet-disk coupling.
 
-**Cluster 2:**  a. Contains more uniformly distributed brightness patterns, possibly representing noise-dominated or feature-absent images.
-                b. Bright, highly symmetric ring-like structures.
-                c. Overall smooth brightness gradient, often circular in geometry.
-                d. These could be debris disks or evolved protoplanetary disks with less massive material.
-                e. The presence of a central cavity but without internal substructures may suggest that planet formation is advanced or complete.
-                f. No visible asymmetries, spirals, or warps.
+### Cluster 2
+1. Contains more uniformly distributed brightness patterns, possibly representing noise-dominated or feature-absent images.
+2. Bright, highly symmetric ring-like structures.
+3. Overall smooth brightness gradient, often circular in geometry.
+4. These could be debris disks or evolved protoplanetary disks with less massive material.
+5. The presence of a central cavity but without internal substructures may suggest that planet formation is advanced or complete.
+6. No visible asymmetries, spirals, or warps.
+
 
 
 
