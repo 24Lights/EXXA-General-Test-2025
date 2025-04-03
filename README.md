@@ -25,7 +25,7 @@ To access and explore the content fully, please **clone the repository locally**
 git clone https://github.com/24Lights/EXXA-General-Test-2025.git
 ```
 
-📬 Need Help?
+Need Help?
 If you encounter any issues while reproducing the results, feel free to:
 
 Raise an issue in this repository if you find any difficulty in reproducing the results
