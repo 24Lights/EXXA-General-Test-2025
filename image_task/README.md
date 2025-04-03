@@ -1,33 +1,81 @@
+## Model Experimentation for Latent Representation Learning
 
-First , I built a **simple autoencoder** and checked if it can reconstruct the given image. Idea is, if it can reconstruct, then the latent dimension , which is far more lighter than the actual image can be used for clustering.
+### 1. Initial: Simple Autoencoder
 
-But the result : 
+To begin, a **basic autoencoder** was implemented to test whether the model could effectively reconstruct the given disk images. The core hypothesis was that if reconstruction is successful, the compressed latent representation (which is significantly smaller than the original image) could be used for downstream unsupervised clustering.
+
+**Result:**
 ![image](https://github.com/user-attachments/assets/7a9c19b4-81c0-4cd5-b957-d24fae9b7ae4)
 
+**Observations:**
+- The reconstructed images appeared blurry and noisy.
+- The exoplanet signatures and ring structures were largely lost.
+- There was a notable elevation in pixel intensity, which distorted contrast.
+- Overall, the model failed to capture fine-grained spatial patterns.
 
-We can observe that the reconstructed image is blurry, has lots of noise , completely avoided the exoplanet presence and ring structure and elevated the pixel intensity
+---
 
+### 2. Improvement: Variational Autoencoder (VAE)
 
-Then i moved on with **variational autoencoders** and it can ( add a point on how vae is better than simple autoencoder for this task) . Slightly better result than before.
+To improve upon the limitations of the simple autoencoder, a variational autoencoder (VAE) was implemented. 
 
+Why VAE?
+- Unlike a traditional autoencoder, a VAE imposes a probabilistic distribution (typically Gaussian) on the latent space, leading to more meaningful and continuous latent representations.
+- It also enables better generalization and smoother interpolation in latent space.
+
+**Result:**
 ![image](https://github.com/user-attachments/assets/a6b697ca-89bc-40f6-b342-572709233b34)
 
-It somewhat preserved the structure but intensified the pixels as before and isse with grains.
+**Observations:**
+- The reconstruction quality slightly improved over the simple autoencoder.
+- The overall disk structure was preserved.
+- However, pixel intensity remained exaggerated, noise/grain artifacts persisted.
 
-Then i experimented with **Alexnet** in the encoder layer and had cnn layers in decoder
+---
 
+### 3. Experiment: AlexNet-based Encoder
+
+Next, **AlexNet** was integrated as the encoder backbone with a convolutional decoder.
+
+**Why AlexNet?**
+- AlexNet is a deep CNN pre-trained on ImageNet, capable of extracting high-level hierarchical features.
+- The hope was that it could capture more global contextual patterns than shallow encoders.
+
+**Result:**
 ![image](https://github.com/user-attachments/assets/6cd90a6c-8a26-400a-966f-da5d0877c05d)
 
-as we can see, it had a bad performance
+**Observations:**
+- Despite the architectural depth, the model performed poorly.
+- Reconstructed outputs were inaccurate.
 
-Then i studied these models, it was evident that model is forgetting the local structures ..........
 
-Then i tried with UNET architecture with skip connections
+---
 
+### 4. Final Architecture: U-Net with Skip Connections
+
+To address the loss of local structures,  **U-Net-based VAE** was used with skip connections between the encoder and decoder layers.
+
+**Why U-Net with Skip Connections?**
+- U-Net is specifically designed to preserve spatial resolution, ideal for segmentation and reconstruction tasks.
+- Skip connections help the decoder retain low-level edge and boundary information, reducing blurriness and improving ring clarity.
+
+**Result:**
 ![image](https://github.com/user-attachments/assets/4ede5f4d-3185-42ff-ab26-7307b026e648)
-
 ![image](https://github.com/user-attachments/assets/5fbce993-bc94-4de2-bb43-c5801d7a54fe)
 
-As we can see, the structure is preserved, exoplanets are reconstructed properly .
+---
 
-This is not a perfect reconstruction as w ecan see there is a slight noise and pixels are intensified but its btter than the preious 3 models
+## Observations & Future Scope
+
+**Key Observations from Best Model (U-Net VAE):**
+- Rings are well-preserved, with improved edge smoothness and structure clarity.
+- Exoplanet blobs are retained, though slightly enlarged and diffused.
+- Background brightness has increased slightly.
+- Spiral arms appear smoother but occasionally broader than the original.
+- Faint ring structures are highlighted more clearly than in the input image.
+
+**Future work:**
+1. To explore attention-based architectures  to capture both global context and fine structures better.
+2. Enhance denoising performance by redefining the loss functions, experimenting with alternative formulations and finding a more strategic approach to combine these losses.
+3. Combine VAE and GAN to enhance the  reconstructions.
+
