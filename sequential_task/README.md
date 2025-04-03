@@ -64,5 +64,11 @@ The task is to classify whether a light curve contains a transit or not . The ch
 - CNN-LSTM hybrid model is effective for this type of time series + event detection task.
 - Focal loss boosts performance on rare-event detection tasks like this one.
 
+## Future scope
+
+- Form a better synthetic data by incorporating real astrophysical noise to simulate more realistic light curves.
+- Multi-class Classification: Extend the binary classification to multi-class settings for different types of transits (e.g., single-planet, binary-star etc).
+- Try with Transformer architectures.
+- Train representation models using unlabeled light curves to better capture variability features
 
 
